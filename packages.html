@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip & Hotel Packages</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="packages.css" />
+    <!-- <style>
+        :root {
+            --primary-color: #d6eaf7;
+            --secondary-color: #e73e76;
+            --bg-color: #f4f4f9;
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: none;
+            color: var(--text-color);
+            display: block;
+        }
+
+        #background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1000;
+            object-fit: cover;
+            background-size: cover;
+        }
+
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -999;
+        }
+
+        .sitelogo {
+            height: 40px;
+            margin-right: 10px;
+            min-width: fit-content;
+        }
+
+        .nav__logo {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav__logo span {
+            color: #e73e76;
+        }
+
+        .link {
+            position: relative;
+        }
+
+        .link>a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 6px 10px;
+            text-decoration: none;
+            width: 100%;
+            transition: all 0.3s linear;
+            align-items: center;
+            margin-top: -15px;
+        }
+
+        .link>a:hover {
+            background-color: #f6ddff;
+            border-radius: 10px;
+            box-shadow: rgb(56, 0, 109) 0px 0px 8px 2px inset;
+            color: #002152;
+        }
+
+        .navigationbar_package {
+            align-items: center;
+            display: flex;
+            gap: 5px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #123456;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-menu>li {
+            float: none;
+        }
+
+        .dropdown-menu>li>a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            color: white;
+        }
+
+        .dropdown-menu>li>a:hover {
+            background-color: #575757;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .contact-btn {
+            position: relative;
+            right: 15px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            padding: 1rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            color: white;
+            background-color: #0697f1;
+            margin: 0;
+        }
+
+        .btn:hover {
+            background-color: #0578c1;
+        }
+
+        #themeToggle {
+            width: inherit;
+        }
+
+        .toggle-container {
+            margin-left: 15px;
+        }
+
+        .hamburger {
+            height: 2rem;
+            width: 1.7rem;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            display: none;
+            transition: 0.2s;
+        }
+
+        .line {
+            height: 5px;
+            width: 100%;
+            background-color: white;
+            border-radius: 2px;
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .package-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 40px;
+        }
+
+        .package-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .package-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .package-info {
+            padding: 20px;
+        }
+
+        .package-info h3 {
+            margin: 0 0 10px;
+            color: #0697f1;
+        }
+
+        .package-info p {
+            margin: 0;
+            color: #666;
+        }
+
+        .login_packages {
+            color: white !important;
+            background-color: #6a5acd !important;
+        }
+
+        .login_packages:hover {
+            background-color: #ff0000 !important;
+            border-color: #ff0000 !important;
+            color: #fff !important;
+        }
+
+        @media (max-width: 1024px) {
+            .navLinks {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2em;
+            margin: 90px 0 20px !important;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .subtitle {
+            color: var(--secondary-color);
+            font-style: italic;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.5s ease-out 0.2s both;
+        }
+
+        .center-card {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .center-card img {
+            max-width: 400px;
+            height: auto;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .center-card img:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .hotel-packages {
+            padding: 40px 0;
+            margin-top: 10px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .pricing-section {
+            padding: 60px 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            margin-top: 40px;
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .pricing-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 30px;
+            flex: 1 1 300px;
+            min-width: 300px;
+            max-width: 400px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .pricing-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            font-family: 'Poppins', sans-serif;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .pricing-card p {
+            font-size: 1em;
+            color: var(--text-color);
+            margin-bottom: 30px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            font-size: 1em;
+            color: var(--text-color);
+        }
+
+        .pricing-card ul li {
+            margin-bottom: 10px;
+        }
+
+        .pricing-card ul li i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+
+        .pricing-card .btn {
+            padding: 15px 30px;
+            font-size: 1em;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+            animation: fadeInUp 0.5s ease-out;
+            margin-top: 20px;
+        }
+    </style> -->
+
+    <style>
+        :root {
+            --primary-color: #d6eaf7;
+            --secondary-color: #e73e76;
+            --bg-color: #f4f4f9;
+            --text-color: #333;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: block;
+        }
+
+        #background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1000;
+            object-fit: cover;
+            background-size: cover;
+        }
+
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -999;
+        }
+
+        .sitelogo {
+            height: 40px;
+            margin-right: 10px;
+            min-width: fit-content;
+        }
+
+        .nav__logo {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav__logo span {
+            color: var(--secondary-color);
+        }
+
+        .link {
+            position: relative;
+        }
+
+        .link>a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 6px 10px;
+            text-decoration: none;
+            width: 100%;
+            transition: all 0.3s linear;
+            align-items: center;
+            margin-top: -15px;
+        }
+
+        .link>a:hover {
+            background-color: #f6ddff;
+            border-radius: 10px;
+            box-shadow: rgb(56, 0, 109) 0px 0px 8px 2px inset;
+            color: #002152;
+        }
+
+        .navigationbar_package {
+            align-items: center;
+            display: flex;
+            gap: 5px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #123456;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-menu>li {
+            float: none;
+        }
+
+        .dropdown-menu>li>a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            color: white;
+        }
+
+        .dropdown-menu>li>a:hover {
+            background-color: #575757;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .contact-btn {
+            position: relative;
+            right: 15px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            padding: 1rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            color: white;
+            background-color: #0697f1;
+            margin: 0;
+        }
+
+        .btn:hover {
+            background-color: #0578c1;
+        }
+
+        #themeToggle {
+            width: inherit;
+        }
+
+        .toggle-container {
+            margin-left: 15px;
+        }
+
+        .hamburger {
+            height: 2rem;
+            width: 1.7rem;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            display: none;
+            transition: 0.2s;
+        }
+
+        .line {
+            height: 5px;
+            width: 100%;
+            background-color: white;
+            border-radius: 2px;
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 30px;
+            padding: 0 40px;
+            margin-top: 40px;
+        }
+
+        .package-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .package-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .package-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .package-info h3 {
+            margin: 0 0 10px;
+            color: var(--secondary-color);
+        }
+
+        .package-info p {
+            margin: 0;
+            color: #666;
+        }
+
+        .login_packages {
+            color: white !important;
+            background-color: #6a5acd !important;
+        }
+
+        .login_packages:hover {
+            background-color: #ff0000 !important;
+            border-color: #ff0000 !important;
+            color: #fff !important;
+        }
+
+        @media (max-width: 1024px) {
+            .navLinks {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2em;
+            margin: 90px 0 20px !important;
+            font-weight: 800;
+            color: var(--primary-color);
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .subtitle {
+            color: var(--secondary-color);
+            font-style: italic;
+            text-align: center;
+            font-weight: 800;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.5s ease-out 0.2s both;
+        }
+
+        .center-card {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .center-card img {
+            max-width: 400px;
+            height: auto;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .center-card img:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .hotel-packages {
+            padding: 40px 0;
+            margin-top: 10px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .pricing-section {
+            padding: 60px 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            margin-top: 40px;
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .pricing-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 30px;
+            flex: 1 1 300px;
+            min-width: 300px;
+            max-width: 400px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .pricing-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .pricing-card p {
+            font-size: 1em;
+            color: var(--text-color);
+            margin-bottom: 30px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            font-size: 1em;
+            color: var(--text-color);
+        }
+
+        .pricing-card ul li {
+            margin-bottom: 10px;
+        }
+
+        .pricing-card ul li i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+
+        .pricing-card .btn {
+            padding: 15px 30px;
+            font-size: 1em;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+            animation: fadeInUp 0.5s ease-out;
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <video autoplay muted loop id="background-video">
+        <!-- <source src="background-video.mp4" type="video/mp4"> -->
+        <source src="packages_bg.mp4" type="video/mp4">
+
+    </video>
+    <div class="video-overlay"></div>
+    <header>
+        <div class="nav-container" id="top">
+            <nav class="newNav">
+                <!-- <div class="container"> -->
+                <div style="display: flex; flex-direction: row; align-items: center;">
+                    <img src="favicon.ico" alt="Logo" class="sitelogo" />
+                    <a href="#" class="nav__logo">
+                        Trip & Hotel Packages
+                    </a>
+                </div>
+                <div class="navigationbar_package">
+                    <ul class="navLinks">
+                        <li class="link" id="View-link" data-aos=""><a href="mapa.html">View</a></li>
+                        <li class="link" id="LogIn-link" data-aos=""><a href="newLogin.html">Log In</a></li>
+                        <li class="link" data-aos=""><a href="/home.html">Home</a></li>
+                        <li class="link" data-aos=""><a href="./about.html">About</a></li>
+                        <li class="link dropdown" data-aos="">
+                            <a href="#Services" class="dropdown">Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#Destinations">Destination</a></li>
+                                <li><a href="#trip">Prices</a></li>
+                                <li><a href="#ReviewGallery">Trip Gallery</a></li>
+                                <li><a href="#tourist">Tourist Guide</a></li>
+                                <li><a href="#hotel">Hotel & Resort</a></li>
+                            </ul>
+                        </li>
+                        <li class="link" data-aos=""><a href="./topdeals/topdeals.html">Top Deals</a></li>
+                        <li class="link" data-aos=""><a href="./package.html">Packages</a></li>
+                        <li class="link" data-aos=""><a href="#testimonials">Testimonial</a></li>
+                        <li class="link" data-aos=""><a href="feedback.html">Rate Us?</a></li>
+                        <li class="link" data-aos=""><a href="#cnt-form">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="toggle-container">
+                    <input id="themeToggle" class="toggle" type="checkbox">
+                </div>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+    <main class="main-content">
+        <section class="hotel-packages">
+            <h2 class="section-title">Our Packages</h2>
+            <p class="subtitle">Find the best deals and offers for your next adventure!</p>
+            <div class="package-grid">
+                <div class="package-card">
+                    <img src="paris.jpg" alt="Paris Getaway">
+                    <div class="package-info">
+                        <h3>Paris Getaway</h3>
+                        <p>Immerse yourself in the culture, art, and romance of Paris. This 5-day luxury tour includes
+                            guided visits to the Louvre, Eiffel Tower, and charming Seine River cruises.</p>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <img src="peru.jpg" alt="Machu Picchu Adventure">
+                    <div class="package-info">
+                        <h3>Machu Picchu Adventure</h3>
+                        <p>Journey through the heart of the Andes and explore the mystical ruins of Machu Picchu. This
+                            7-day adventure offers unforgettable hikes and deep cultural immersion.</p>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <img src="ronin-06roiCfSCiU-unsplash (1).jpg" alt="Tropical Paradise">
+                    <div class="package-info">
+                        <h3>Tropical Paradise</h3>
+                        <p>Unwind in the lush surroundings of a private island. Enjoy 6 days of sun-soaked beaches,
+                            crystal-clear waters, and luxurious spa treatments with our all-inclusive package.</p>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <img src="Sydney.jpg" alt="Sydney Explorer">
+                    <div class="package-info">
+                        <h3>Sydney Explorer</h3>
+                        <p>Discover the iconic sights of Sydney in this 5-day tour. Visit the Sydney Opera House, Bondi
+                            Beach, and enjoy a sunset harbor cruise that will leave you in awe.</p>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <img src="santorini-view.jpg" alt="Santorini Escape">
+                    <div class="package-info">
+                        <h3>Santorini Escape</h3>
+                        <p>Escape to the picturesque island of Santorini. This 6-day retreat features breathtaking
+                            sunsets, exquisite Greek cuisine, and luxurious cliffside accommodations.</p>
+                    </div>
+                </div>
+                <div class="package-card">
+                    <img src="spain.jpg" alt="Spanish Fiesta">
+                    <div class="package-info">
+                        <h3>Spanish Fiesta</h3>
+                        <p>Experience the vibrant culture of Spain with this 7-day tour. Enjoy flamenco dancing, tapas
+                            tastings, and visits to iconic cities like Barcelona and Madrid.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- <section class="pricing-section">
+            <h2 class="section-title">Pricing</h2>
+            <p class="subtitle">Choose the perfect plan for your needs</p>
+            <div class="pricing-container">
+                <div class="pricing-card">
+                    <h3>Basic Plan</h3>
+                    <p>Starting at $199</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 3 Days / 2 Nights</li>
+                        <li><i class="fas fa-check"></i> Hotel Accommodation</li>
+                        <li><i class="fas fa-check"></i> Guided Tours</li>
+                    </ul>
+                    <button class="btn">Book Now</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Premium Plan</h3>
+                    <p>Starting at $399</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 5 Days / 4 Nights</li>
+                        <li><i class="fas fa-check"></i> Hotel Accommodation</li>
+                        <li><i class="fas fa-check"></i> All Meals Included</li>
+                    </ul>
+                    <button class="btn">Book Now</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Luxury Plan</h3>
+                    <p>Starting at $599</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i> 7 Days / 6 Nights</li>
+                        <li><i class="fas fa-check"></i> 5 Star Hotel Accommodation</li>
+                        <li><i class="fas fa-check"></i> All Meals & Drinks Included</li>
+                    </ul>
+                    <button class="btn">Book Now</button>
+                </div>
+            </div>
+        </section> -->
+    </main>
+</body>
+
+</html>
